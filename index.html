@@ -1,1 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batrisi | Dental & Denture Services at Your Doorstep</title>
+<meta name="description" content="Batrisi provides convenient dental and denture services at your doorstep.">
+<style>
+:root{
+  --primary:#0b7285;--primary-dark:#075766;--ink:#12303a;--muted:#60757d;
+  --soft:#eef9fa;--line:#dcebee;--white:#fff;--shadow:0 16px 45px rgba(12,62,73,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #edf3f4}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;width:165px;height:58px;overflow:hidden}.logo img{width:165px;height:auto;display:block}
+.logo span{color:#183f49}
+nav{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600}
+nav a:hover{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:13px 19px;font-weight:750;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 8px 20px rgba(11,114,133,.20)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--primary);color:var(--primary);background:#fff}
+.mobile-menu{display:none;background:none;border:0;font-size:27px}
+.hero{background:linear-gradient(135deg,#f3fbfc 0%,#fff 58%);padding:72px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:55px;align-items:center}
+.badge{display:inline-flex;background:#dff5f7;color:var(--primary-dark);padding:7px 12px;border-radius:30px;font-size:13px;font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(40px,5.2vw,65px);line-height:1.05;letter-spacing:-2.8px;margin-bottom:20px}
+.hero p{font-size:18px;color:var(--muted);max-width:590px;margin-bottom:28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-image{height:450px;border-radius:30px;background:linear-gradient(145deg,#cceff2,#f5fbfb);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--shadow)}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.placeholder{font-weight:750;color:#47818a;text-align:center;padding:30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;text-align:center}
+.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}
+section{padding:82px 0}
+.section-head{text-align:center;max-width:700px;margin:0 auto 42px}
+.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary);font-weight:800}
+h2{font-size:38px;letter-spacing:-1.4px;line-height:1.15;margin:8px 0 12px}
+.section-head p,.card p{color:var(--muted)}
+.services{background:#fbfdfd}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;box-shadow:0 7px 25px rgba(12,62,73,.045)}
+.card-img{height:175px;border-radius:14px;background:var(--soft);overflow:hidden;margin-bottom:18px;display:flex;align-items:center;justify-content:center}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.icon{font-size:42px}
+.card h3{margin-bottom:7px;font-size:21px}.card p{font-size:14px;min-height:66px}
+.card .btn{margin-top:14px;width:100%}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}
+.benefit{padding:17px;border:1px solid var(--line);border-radius:15px}
+.benefit b{display:block;margin-bottom:3px}.benefit span{font-size:13px;color:var(--muted)}
+.info-box{background:var(--soft);border-radius:28px;padding:40px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{padding:25px;border:1px solid var(--line);border-radius:18px}
+.step-num{width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:16px}
+.order{background:#f4fafb}
+.form-wrap{max-width:850px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}
+label{font-size:13px;font-weight:750}
+input,select,textarea{width:100%;border:1px solid #cfe0e3;border-radius:11px;padding:13px 14px;font:inherit;color:var(--ink);outline:none;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(11,114,133,.10)}
+textarea{min-height:105px;resize:vertical}
+.location-row{display:flex;gap:8px}.location-row .btn{white-space:nowrap}
+.small{font-size:12px;color:var(--muted)}
+.confirm{display:none;margin-top:20px;padding:18px;border-radius:15px;background:#e9f8ee;border:1px solid #b9e3c7}
+.confirm strong{display:block;color:#196b35;margin-bottom:5px}
+.dentists{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dentist{text-align:center;border:1px solid var(--line);border-radius:20px;padding:24px}
+.avatar{width:125px;height:125px;border-radius:50%;margin:0 auto 16px;background:var(--soft);display:grid;place-items:center;font-size:45px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.dentist p{font-size:13px;color:var(--muted)}.tag{display:inline-block;margin:10px 0;padding:5px 9px;border-radius:20px;background:#eef6f7;color:var(--primary-dark);font-size:11px;font-weight:800}
+.contact{background:var(--ink);color:#fff}.contact p{color:#b9cbd0}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact a{color:#a7e5ea}
+footer{background:#0b252d;color:#a8bdc2;padding:25px 0;font-size:13px}.footer{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+ nav{display:none}.mobile-menu{display:block}.hero{padding:48px 0}.hero-grid,.why,.contact-grid{grid-template-columns:1fr}.hero-image{height:320px;order:-1}.cards,.dentists{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ h1{font-size:42px;letter-spacing:-1.8px}.stats,.cards,.dentists,.steps,.benefits,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.form-wrap{padding:20px}.location-row{flex-direction:column}.footer{flex-direction:column}.hero-image{height:270px}
+}
+</style>
+</head>
+<body>
 
+<header>
+  <div class="container nav">
+    <a href="#" class="logo"><img src="images/batrisi-logo.png" alt="Batrisi.com - Dental Services at Your Doorstep"></a>
+    <nav>
+      <a href="#services">Services</a><a href="#dentists">Dentists</a><a href="#how">How It Works</a>
+      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="#order" class="btn btn-primary">Order Home Service</a>
+    </nav>
+    <button class="mobile-menu" onclick="alert('Use the buttons below to navigate.')" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">🦷 Dental care made convenient</div>
+      <h1>Professional dental care, at your doorstep.</h1>
+      <p>Book dental and denture services from the comfort of your home. Tell us what you need, share your location, and our team will get in touch.</p>
+      <div class="actions">
+        <a href="#order" class="btn btn-primary">Order Home Service →</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>Home</strong><span>Service focused</span></div>
+        <div class="stat"><strong>Easy</strong><span>WhatsApp booking</span></div>
+        <div class="stat"><strong>Trusted</strong><span>Professional care</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="placeholder">PLACE HERO IMAGE HERE<br><small>/images/hero-dentist.jpg</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Dental Services</div><h2>Care designed around your needs</h2><p>Choose a service and request a convenient home visit.</p></div>
+    <div class="cards">
+      <article class="card"><div class="card-img"><div class="placeholder">DENTURE IMAGE</div></div><h3>New Dentures</h3><p>Request professional denture services tailored to your needs.</p><button class="btn btn-primary" onclick="selectService('New Denture')">Order Service</button></article>
+      <article class="card"><div class="card-img"><div class="placeholder">REPAIR IMAGE</div></div><h3>Denture Repair</h3><p>Convenient home-service requests for damaged or broken dentures.</p><button class="btn btn-primary" onclick="selectService('Denture Repair')">Order Service</button></article>
+      <article class="card"><div class="card-img"><div class="placeholder">CONSULTATION IMAGE</div></div><h3>Home Consultation</h3><p>Request a dental consultation from the comfort of your home.</p><button class="btn btn-primary" onclick="selectService('Home Dental Consultation')">Order Service</button></article>
+      <article class="card"><div class="card-img"><div class="placeholder">ADJUSTMENT IMAGE</div></div><h3>Denture Adjustment</h3><p>Request help with denture fit and comfort.</p><button class="btn btn-primary" onclick="selectService('Denture Adjustment')">Order Service</button></article>
+      <article class="card"><div class="card-img"><div class="placeholder">CHECKUP IMAGE</div></div><h3>Dental Check-up</h3><p>Request a basic dental assessment at home.</p><button class="btn btn-primary" onclick="selectService('Dental Check-up')">Order Service</button></article>
+      <article class="card"><div class="card-img"><div class="placeholder">OTHER IMAGE</div></div><h3>Other Dental Service</h3><p>Can't find what you need? Tell us about your requirement.</p><button class="btn btn-primary" onclick="selectService('Other')">Order Service</button></article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container why">
+    <div>
+      <div class="eyebrow">Why Batrisi</div><h2>A simpler way to request dental care.</h2>
+      <p style="color:var(--muted)">Batrisi is designed to make dental and denture service requests straightforward, especially when travelling to a clinic is inconvenient.</p>
+      <div class="benefits">
+        <div class="benefit">🏠 <b>Home Service</b><span>Request service at your location.</span></div>
+        <div class="benefit">💬 <b>WhatsApp</b><span>Simple communication with our team.</span></div>
+        <div class="benefit">🦷 <b>Dental Services</b><span>Focused dental and denture solutions.</span></div>
+        <div class="benefit">📍 <b>Location Based</b><span>Share your service location easily.</span></div>
+      </div>
+    </div>
+    <div class="info-box"><h3 style="font-size:28px;margin-bottom:12px">Your comfort comes first.</h3><p style="color:var(--muted)">Choose your service, enter your details and location, and submit a request. Our team can then follow up with you to confirm the requirement and next steps.</p></div>
+  </div>
+</section>
+
+<section id="how" style="background:#fbfdfd">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">How It Works</div><h2>Four simple steps</h2></div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Choose</h3><p class="small">Select the dental service you need.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Tell us</h3><p class="small">Enter your name, mobile, requirement and address.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Place order</h3><p class="small">Submit your home-service request.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>We contact you</h3><p class="small">Your request is prepared for WhatsApp and email follow-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="dentists">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Our Dentists</div><h2>Meet our dental professionals</h2><p>Replace these placeholders with verified dentist profiles and credentials.</p></div>
+    <div class="dentists">
+      <div class="dentist"><div class="avatar">👨‍⚕️</div><h3>Dr. [Name]</h3><span class="tag">BDS / MDS</span><p>Dental professional<br>Specialization: [Specialization]<br>Experience: [X] years</p></div>
+      <div class="dentist"><div class="avatar">👩‍⚕️</div><h3>Dr. [Name]</h3><span class="tag">BDS / MDS</span><p>Dental professional<br>Specialization: [Specialization]<br>Experience: [X] years</p></div>
+      <div class="dentist"><div class="avatar">👨‍⚕️</div><h3>Dr. [Name]</h3><span class="tag">BDS / MDS</span><p>Dental professional<br>Specialization: [Specialization]<br>Experience: [X] years</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Home Service</div><h2>Order dental service at home</h2><p>Fill in the details below. Your request will be prepared for WhatsApp and email.</p></div>
+    <div class="form-wrap">
+      <form id="orderForm">
+        <div class="form-grid">
+          <div class="field"><label>Full Name *</label><input id="name" required placeholder="Your name"></div>
+          <div class="field"><label>Mobile Number *</label><input id="mobile" required inputmode="numeric" placeholder="10-digit mobile number"></div>
+          <div class="field"><label>WhatsApp Number</label><input id="whatsapp" inputmode="numeric" placeholder="If different from mobile"></div>
+          <div class="field"><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+          <div class="field full"><label>Service *</label>
+            <select id="service" required><option value="">Select a service</option><option>New Denture</option><option>Denture Repair</option><option>Denture Adjustment</option><option>Home Dental Consultation</option><option>Dental Check-up</option><option>Other</option></select>
+          </div>
+          <div class="field full"><label>What do you need?</label><textarea id="requirement" placeholder="Describe your dental requirement..."></textarea></div>
+          <div class="field full"><label>Home Service Address *</label><textarea id="address" required placeholder="House / flat, street, area, city"></textarea></div>
+          <div class="field full"><label>Google Maps Location</label>
+            <div class="location-row"><input id="location" placeholder="Paste Google Maps link or use your current location"><button type="button" class="btn btn-outline" onclick="getLocation()">📍 Use My Location</button></div>
+            <span class="small">Location access requires your permission. If allowed, a Google Maps link will be generated.</span>
+          </div>
+          <div class="full"><button class="btn btn-primary" style="width:100%;font-size:16px" type="submit">Place Order & Continue to WhatsApp</button></div>
+        </div>
+      </form>
+      <div class="confirm" id="confirm"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container contact-grid">
+    <div><div class="eyebrow">Contact</div><h2>Need help choosing a service?</h2><p>Speak with the Batrisi team through WhatsApp or email.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+      <div>📱 WhatsApp: <a href="https://wa.me/919327930421" target="_blank">9327930421</a></div>
+      <div>✉️ Email: <a href="mailto:letsgonayan@gmail.com">letsgonayan@gmail.com</a></div>
+      <div><a class="btn btn-primary" style="width:max-content" href="https://wa.me/919327930421" target="_blank">Chat on WhatsApp</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer"><span>© 2026 Batrisi. All rights reserved.</span><span>Dental & Denture Services at Your Doorstep</span></div></footer>
+
+<script>
+const CONFIG = {
+  businessName: "Batrisi",
+  whatsappNumber: "919327930421",
+  orderEmail: "letsgonayan@gmail.com"
+};
+
+function selectService(service){
+  document.getElementById("service").value = service;
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+
+function getLocation(){
+  if(!navigator.geolocation){ alert("Geolocation is not supported by this browser."); return; }
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const lat = pos.coords.latitude.toFixed(6);
+      const lng = pos.coords.longitude.toFixed(6);
+      document.getElementById("location").value = `https://www.google.com/maps?q=${lat},${lng}`;
+    },
+    () => alert("Unable to get your location. Please allow location access or paste a Google Maps link.")
+  );
+}
+
+function makeOrderId(){
+  const d = new Date();
+  const date = d.getFullYear().toString() + String(d.getMonth()+1).padStart(2,"0") + String(d.getDate()).padStart(2,"0");
+  return `BAT-${date}-${Math.floor(1000 + Math.random()*9000)}`;
+}
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.replace(/\D/g,"");
+  const service = document.getElementById("service").value;
+  const address = document.getElementById("address").value.trim();
+
+  if(!/^[6-9]\d{9}$/.test(mobile)){
+    alert("Please enter a valid 10-digit Indian mobile number.");
+    return;
+  }
+  if(!service || !name || !address) return;
+
+  const orderId = makeOrderId();
+  const whatsapp = document.getElementById("whatsapp").value.trim() || mobile;
+  const email = document.getElementById("email").value.trim() || "Not provided";
+  const requirement = document.getElementById("requirement").value.trim() || "Not provided";
+  const location = document.getElementById("location").value.trim() || "Not provided";
+  const now = new Date().toLocaleString("en-IN");
+
+  const message =
+`BATRISI HOME DENTAL SERVICE ORDER
+
+Order ID: ${orderId}
+
+Customer Name: ${name}
+Mobile: ${mobile}
+WhatsApp: ${whatsapp}
+Email: ${email}
+
+Service: ${service}
+
+Requirement:
+${requirement}
+
+Address:
+${address}
+
+Google Maps Location:
+${location}
+
+Order Date & Time:
+${now}
+
+Please contact the customer to confirm the order.`;
+
+  const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  /*
+    EMAIL INTEGRATION:
+    A static webpage cannot securely send email directly.
+    Connect this form to EmailJS, Formspree, Web3Forms,
+    or your own serverless endpoint here.
+
+    Example payload to send:
+    {
+      orderId, name, mobile, whatsapp, email,
+      service, requirement, address, location, now
+    }
+  */
+
+  const confirm = document.getElementById("confirm");
+  confirm.style.display = "block";
+  confirm.innerHTML = `<strong>✓ Order request created: ${orderId}</strong>
+    Your WhatsApp message is ready. Tap below to send it to Batrisi.
+    <div style="margin-top:12px"><a class="btn btn-primary" href="${waUrl}" target="_blank">Send Order on WhatsApp</a></div>
+    <div class="small" style="margin-top:10px">Email integration is ready to be connected to your preferred email service.</div>`;
+
+  confirm.scrollIntoView({behavior:"smooth",block:"center"});
+});
+</script>
+</body>
+</html>
