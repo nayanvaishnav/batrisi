@@ -104,7 +104,7 @@ footer{background:#0b252d;color:#a8bdc2;padding:25px 0;font-size:13px}.footer{di
     <nav>
       <a href="#services">Services</a><a href="#dentists">Dentists</a><a href="#how">How It Works</a>
       <a href="#about">About</a><a href="#contact">Contact</a>
-      <a href="#order" class="btn btn-primary">Order Home Service</a>
+      <a href="#order" class="btn btn-primary">Book Consultation</a>
     </nav>
     <button class="mobile-menu" onclick="alert('Use the buttons below to navigate.')" aria-label="Menu">☰</button>
   </div>
@@ -118,7 +118,8 @@ footer{background:#0b252d;color:#a8bdc2;padding:25px 0;font-size:13px}.footer{di
       <h1>Professional dental care, at your doorstep.</h1>
       <p>Book dental and denture services from the comfort of your home. Tell us what you need, share your location, and our team will get in touch.</p>
       <div class="actions">
-        <a href="#order" class="btn btn-primary">Order Home Service →</a>
+        <button type="button" class="btn btn-primary" onclick="selectAppointment('Online Consultation — ₹200')">Online Consultation · ₹200</button>
+        <button type="button" class="btn btn-outline" onclick="selectAppointment('At-Home Service — ₹500')">At Home · ₹500</button>
         <a href="#services" class="btn btn-outline">Explore Services</a>
       </div>
       <div class="stats">
@@ -158,9 +159,6 @@ footer{background:#0b252d;color:#a8bdc2;padding:25px 0;font-size:13px}.footer{di
       <article class="card"><div class="card-img"><div class="placeholder"><img src="images/new-denture.jpg" data-filename="images/new-denture.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="New denture service"></div></div><h3>New Dentures</h3><p>Request professional denture services tailored to your needs.</p><button class="btn btn-primary" onclick="selectService('New Denture')">Order Service</button></article>
       <article class="card"><div class="card-img"><div class="placeholder"><img src="images/denture-repair.jpg" data-filename="images/denture-repair.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="Denture repair service"></div></div><h3>Denture Repair</h3><p>Convenient home-service requests for damaged or broken dentures.</p><button class="btn btn-primary" onclick="selectService('Denture Repair')">Order Service</button></article>
       <article class="card"><div class="card-img"><div class="placeholder"><img src="images/home-dental-consultation.jpg" data-filename="images/home-dental-consultation.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="Home dental consultation"></div></div><h3>Home Consultation</h3><p>Request a dental consultation from the comfort of your home.</p><button class="btn btn-primary" onclick="selectService('Home Dental Consultation')">Order Service</button></article>
-      <article class="card"><div class="card-img"><div class="placeholder"><img src="images/denture-adjustment.jpg" data-filename="images/denture-adjustment.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="Denture adjustment service"></div></div><h3>Denture Adjustment</h3><p>Request help with denture fit and comfort.</p><button class="btn btn-primary" onclick="selectService('Denture Adjustment')">Order Service</button></article>
-      <article class="card"><div class="card-img"><div class="placeholder"><img src="images/dental-checkup.jpg" data-filename="images/dental-checkup.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="Dental check-up service"></div></div><h3>Dental Check-up</h3><p>Request a basic dental assessment at home.</p><button class="btn btn-primary" onclick="selectService('Dental Check-up')">Order Service</button></article>
-      <article class="card"><div class="card-img"><div class="placeholder"><img src="images/other-dental-service.jpg" data-filename="images/other-dental-service.jpg" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'missing-image',textContent:this.dataset.filename}))" alt="Other dental service"></div></div><h3>Other Dental Service</h3><p>Can't find what you need? Tell us about your requirement.</p><button class="btn btn-primary" onclick="selectService('Other')">Order Service</button></article>
     </div>
   </div>
 </section>
@@ -206,19 +204,21 @@ footer{background:#0b252d;color:#a8bdc2;padding:25px 0;font-size:13px}.footer{di
 
 <section id="order" class="order">
   <div class="container">
-    <div class="section-head"><div class="eyebrow">Home Service</div><h2>Order dental service at home</h2><p>Fill in the details below. Your request will be prepared for WhatsApp and email.</p></div>
+    <div class="section-head"><div class="eyebrow">Book a Consultation</div><h2>Choose online or at-home dental care</h2><p>Fill in the details below. Your request will be prepared for WhatsApp and email.</p></div>
     <div class="form-wrap">
       <form id="orderForm">
         <div class="form-grid">
           <div class="field"><label>Full Name *</label><input id="name" required placeholder="Your name"></div>
           <div class="field"><label>Mobile Number *</label><input id="mobile" required inputmode="numeric" placeholder="10-digit mobile number"></div>
-          <div class="field"><label>WhatsApp Number</label><input id="whatsapp" inputmode="numeric" placeholder="If different from mobile"></div>
           <div class="field"><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+          <div class="field"><label>Consultation Type *</label>
+            <select id="consultationType" required><option value="">Select a consultation type</option><option value="Online Consultation — ₹200">Online Consultation — ₹200</option><option value="At-Home Service — ₹500">At-Home Service — ₹500</option></select>
+          </div>
           <div class="field full"><label>Service *</label>
-            <select id="service" required><option value="">Select a service</option><option>New Denture</option><option>Denture Repair</option><option>Denture Adjustment</option><option>Home Dental Consultation</option><option>Dental Check-up</option><option>Other</option></select>
+            <select id="service" required><option value="">Select a service</option><option>New Denture</option><option>Denture Repair</option><option>Home Dental Consultation</option></select>
           </div>
           <div class="field full"><label>What do you need?</label><textarea id="requirement" placeholder="Describe your dental requirement..."></textarea></div>
-          <div class="field full"><label>Home Service Address *</label><textarea id="address" required placeholder="House / flat, street, area, city"></textarea></div>
+          <div class="field full"><label>Address <span class="small">(required for at-home service)</span></label><textarea id="address" placeholder="House / flat, street, area, city"></textarea></div>
           <div class="field full"><label>Google Maps Location</label>
             <div class="location-row"><input id="location" placeholder="Paste Google Maps link or use your current location"><button type="button" class="btn btn-outline" onclick="getLocation()">📍 Use My Location</button></div>
             <span class="small">Location access requires your permission. If allowed, a Google Maps link will be generated.</span>
@@ -276,6 +276,11 @@ function selectService(service){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
+function selectAppointment(type){
+  document.getElementById("consultationType").value = type;
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+
 function getLocation(){
   if(!navigator.geolocation){ alert("Geolocation is not supported by this browser."); return; }
   navigator.geolocation.getCurrentPosition(
@@ -299,6 +304,7 @@ document.getElementById("orderForm").addEventListener("submit", function(e){
 
   const name = document.getElementById("name").value.trim();
   const mobile = document.getElementById("mobile").value.replace(/\D/g,"");
+  const consultationType = document.getElementById("consultationType").value;
   const service = document.getElementById("service").value;
   const address = document.getElementById("address").value.trim();
 
@@ -306,10 +312,13 @@ document.getElementById("orderForm").addEventListener("submit", function(e){
     alert("Please enter a valid 10-digit Indian mobile number.");
     return;
   }
-  if(!service || !name || !address) return;
+  if(!consultationType || !service || !name) return;
+  if(consultationType.startsWith("At-Home") && !address){
+    alert("Please enter the service address for an at-home visit.");
+    return;
+  }
 
   const orderId = makeOrderId();
-  const whatsapp = document.getElementById("whatsapp").value.trim() || mobile;
   const email = document.getElementById("email").value.trim() || "Not provided";
   const requirement = document.getElementById("requirement").value.trim() || "Not provided";
   const location = document.getElementById("location").value.trim() || "Not provided";
@@ -322,9 +331,9 @@ Order ID: ${orderId}
 
 Customer Name: ${name}
 Mobile: ${mobile}
-WhatsApp: ${whatsapp}
 Email: ${email}
 
+Consultation Type: ${consultationType}
 Service: ${service}
 
 Requirement:
@@ -351,7 +360,7 @@ Please contact the customer to confirm the order.`;
 
     Example payload to send:
     {
-      orderId, name, mobile, whatsapp, email,
+      orderId, name, mobile, email, consultationType,
       service, requirement, address, location, now
     }
   */
